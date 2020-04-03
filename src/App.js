@@ -1,19 +1,26 @@
 import React from "react";
-import { Route, Switch, withRouter } from "react-router-dom";
-import Geolocation from './components/Geolocation'
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Layout from "./hoc/Layout";
+import Home from "./components/Home";
+import Geolocation from "./components/Geolocation";
+
 
 import "./App.css";
 
 function App() {
-  const routes = (
-    <Switch>
-      <Route path="/" component={Geolocation} />
-    </Switch>
+  let routes = (
+    <BrowserRouter>
+      <Switch>
+        <Route path="/geolocation" component={Geolocation} />
+        <Route path="/" component={Home} />
+
+      </Switch>
+    </BrowserRouter>
   );
 
   return (
-    <div className="App">
-      <header className="App-header">Learn React</header>
+    <div>
+      <Layout>{routes}</Layout>
     </div>
   );
 }
