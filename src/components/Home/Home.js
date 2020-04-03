@@ -5,9 +5,12 @@ import "./Home.scss";
 
 const Home = (props) => {
   const [routeGeolocation, setRouteGeolocation] = useState(false);
+  const [watchLocation, setWatchLocation] = useState(false);
+  
   let routeTo = "";
 
   routeTo = routeGeolocation && <Redirect to={`/geolocation`} />;
+  routeTo = watchLocation && <Redirect to={`/watchLocation`} />;
 
   return (
     <div>
@@ -19,6 +22,9 @@ const Home = (props) => {
 
       <button onClick={() => setRouteGeolocation(true)}>
         Geolocation
+      </button>
+      <button onClick={() => setWatchLocation(true)}>
+        watch location
       </button>
 
 

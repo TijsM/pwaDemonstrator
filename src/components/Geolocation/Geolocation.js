@@ -48,7 +48,7 @@ const Geolocation = () => {
       {location.status === "error" && "error"}
       {location.status === "found" && locationJsx}
 
-      {address? <div>oh yeah, and I know where you are:  {address}</div>: null}
+      {address? <div>oh yeah, and I know where that is <span role='img' aria-label="wink"/> 😉 {address} </div>: null}
     </div>
   );
 };
