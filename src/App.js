@@ -5,7 +5,7 @@ import Home from "./components/Home";
 import Geolocation from "./components/Geolocation";
 
 
-import "./App.css";
+import "./App.scss";
 
 function App() {
   let routes = (
