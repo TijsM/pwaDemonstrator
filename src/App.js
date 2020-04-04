@@ -5,7 +5,6 @@ import Home from "./components/Home/Home";
 import Geolocation from "./components/Geolocation/Geolocation";
 import WatchLocation from "./components/WatchLocation/Watchlocation";
 
-
 import "./App.scss";
 
 function App() {
@@ -13,9 +12,9 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path="/geolocation" component={Geolocation} />
+
         <Route path="/watchLocation" component={WatchLocation} />
         <Route path="/" component={Home} />
-
       </Switch>
     </BrowserRouter>
   );

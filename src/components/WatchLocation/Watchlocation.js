@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import "./Watchlocation.scss";
+
 const WatchLocation = () => {
   const [locations, setLocations] = useState([]);
 
@@ -12,7 +14,7 @@ const WatchLocation = () => {
         longitude: pos.coords.latitude,
       });
 
-      setLocations(_state)
+      setLocations(_state);
     };
 
     const error = (error) => {
@@ -27,21 +29,28 @@ const WatchLocation = () => {
     navigator.geolocation.watchPosition(success, error, options);
   }, [locations, setLocations]);
 
-  console.log(locations)
+  console.log(locations);
 
   const locationsJSX = locations.map((loc) => {
-    return <div key={Math.random()}>
-      <div>accuracy: {loc.accuracy}</div>
-      <div>longitude: {loc.longitude}</div>
-      <div>latitude: {loc.latitude}</div>
-    </div>
-  })
+    return (
+      <div key={Math.random()} className="location">
+        <div>accuracy: {loc.accuracy}</div>
+        <div>longitude: {loc.longitude}</div>
+        <div>latitude: {loc.latitude}</div>
+      </div>
+    );
+  });
 
-  return <div>
-    watchLocation
-    <div> the accuracy is the confidence lever (the higher the better)</div>
-    {locationsJSX}
-  </div>;
+  return (
+    <div>
+      <h1>Watchlocation</h1>
+      <div className="headerCaption">
+        the accuracy is the confidence lever (the higher the better). <br />
+        everytime you move a new location will be printed
+      </div>
+      {locationsJSX}
+    </div>
+  );
 };
 
 export default WatchLocation;
