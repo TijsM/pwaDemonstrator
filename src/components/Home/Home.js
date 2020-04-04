@@ -5,6 +5,7 @@ import "./Home.scss";
 const Home = (props) => {
   const [routeGeolocation, setRouteGeolocation] = useState(null);
   const [watchLocation, setWatchLocation] = useState(null);
+  const [visibility, setVisibility] = useState(null);
 
   return (
     <div>
@@ -30,10 +31,17 @@ const Home = (props) => {
         >
           watch location
         </button>
+        <button
+          className="funcButton"
+          onClick={() => setVisibility(<Redirect to={`/visibility`} />)}
+        >
+          visibility
+        </button>
       </div>
 
       {routeGeolocation}
       {watchLocation}
+      {visibility}
     </div>
   );
 };
