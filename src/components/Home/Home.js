@@ -6,6 +6,7 @@ const Home = (props) => {
   const [routeGeolocation, setRouteGeolocation] = useState(null);
   const [watchLocation, setWatchLocation] = useState(null);
   const [visibility, setVisibility] = useState(null);
+  const [vibration, setVibration] = useState(null);
 
   return (
     <div>
@@ -37,11 +38,19 @@ const Home = (props) => {
         >
           visibility
         </button>
+        <button
+          className="funcButton"
+          onClick={() => setVibration(<Redirect to={`/vibration`} />)}
+        >
+          vibration
+        </button>
       </div>
+
 
       {routeGeolocation}
       {watchLocation}
       {visibility}
+      {vibration}
     </div>
   );
 };

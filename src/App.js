@@ -5,6 +5,7 @@ import Home from "./components/Home/Home";
 import Geolocation from "./components/Geolocation/Geolocation";
 import WatchLocation from "./components/WatchLocation/Watchlocation";
 import Visibility from "./components/Visibility/Visibility";
+import Vibration from "./components/Vibration/Vibration";
 
 import "./App.scss";
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/geolocation" component={Geolocation} />
         <Route path="/watchLocation" component={WatchLocation} />
         <Route path="/visibility" component={Visibility} />
+        <Route path="/vibration" component={Vibration} />
         <Route path="/" component={Home} />
       </Switch>
     </BrowserRouter>
