@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Layout from "./hoc/Layout";
-import Home from "./components/Home";
-import Geolocation from "./components/Geolocation";
-
+import Home from "./components/Home/Home";
+import Geolocation from "./components/Geolocation/Geolocation";
+import WatchLocation from "./components/WatchLocation/Watchlocation";
 
 import "./App.scss";
 
@@ -12,8 +12,9 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path="/geolocation" component={Geolocation} />
-        <Route path="/" component={Home} />
 
+        <Route path="/watchLocation" component={WatchLocation} />
+        <Route path="/" component={Home} />
       </Switch>
     </BrowserRouter>
   );
