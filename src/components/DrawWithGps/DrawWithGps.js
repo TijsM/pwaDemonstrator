@@ -56,30 +56,36 @@ const DrawWithGps = () => {
     navigator.geolocation.watchPosition(success, error, options);
   }, [locations, setLocations]);
 
-  const calcRelativeMovement = (long1, lat1, long2, lat2) => {
-    const verticalMovement = long1 - long2;
-    const horizontalMovement = lat1 - lat2;
+  // const calcRelativeMovement = (long1, lat1, long2, lat2) => {
+  //   const verticalMovement = long1 - long2;
+  //   const horizontalMovement = lat1 - lat2;
 
-    const relativeVerticalMovement = verticalMovement / 90;
-    const relatiHorizontalMovement = horizontalMovement / 90;
+  //   const relativeVerticalMovement = verticalMovement / 90;
+  //   const relatiHorizontalMovement = horizontalMovement / 90;
 
-    return {
-      vertical: relativeVerticalMovement,
-      horizontalMovement: relatiHorizontalMovement,
-    };
-  };
+  //   return {
+  //     vertical: relativeVerticalMovement,
+  //     horizontalMovement: relatiHorizontalMovement,
+  //   };
+  // };
 
-  // console.log("locations", locations);
-
-  //create an array with the relative distances
-  const relativeDistances = [];
-   mockLocations.forEach((cord, index) => {
-   if(index !== mockLocations.length -1){
-      relativeDistances.push(calcRelativeMovement(cord.longitude, cord.latitude, mockLocations[index+1].longitude, mockLocations[index+1].latitude))
-   }
-  })
+  //YOU NEED THE RELATIVE COORDS, NOT THE RELATIVE DISTANCES
   
-  console.log(relativeDistances)
+
+  const makeCoordsRelative = (long, lat) => {
+    const _long = long/90 * window.innerWidth;
+    const _lat = lat/90 * window.innerHeight-150;
+
+    return{
+      longitude: _long,
+      latitude: _lat
+    }
+  }
+
+
+
+
+  
 
   let x = 50;
   let y = 50;
@@ -89,13 +95,16 @@ const DrawWithGps = () => {
   };
 
   const draw = p5 => {
-    p5.background(0);
-    p5.ellipse(x, y, 70, 70);
-    p5.rect(x, y+25, 300, 100, 0, 50, 50, 0)
-    p5.ellipse(x, y +150, 70, 70);
+    p5.background(255);
+    mockLocations.forEach((loc) => {
+      const relativeLoc = makeCoordsRelative(loc.longitude, loc.latitude)
+      
+      const horizontalCord = relativeLoc.longitude;
+      const verticalCord = relativeLoc.latitude;
+      
+      p5.ellipse(horizontalCord, verticalCord, 25)
+    })
     x++;
-
-    
   }
 
   return (
