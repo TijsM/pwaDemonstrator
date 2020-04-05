@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import "./Home.scss";
 
-const Home = (props) => {
+const Home = () => {
   const [routeGeolocation, setRouteGeolocation] = useState(null);
   const [watchLocation, setWatchLocation] = useState(null);
+  const [visibility, setVisibility] = useState(null);
+  const [vibration, setVibration] = useState(null);
+  const [drawGps, setDrawGps] = useState(null);
 
   return (
     <div>
@@ -30,10 +33,32 @@ const Home = (props) => {
         >
           watch location
         </button>
+        <button
+          className="funcButton"
+          onClick={() => setVisibility(<Redirect to={`/visibility`} />)}
+        >
+          visibility
+        </button>
+        <button
+          className="funcButton"
+          onClick={() => setVibration(<Redirect to={`/vibration`} />)}
+        >
+          vibration
+        </button>
+        <button
+          className="funcButton"
+          onClick={() => setDrawGps(<Redirect to={`/drawWithGps`} />)}
+        >
+          draw with gps
+        </button>
       </div>
+
 
       {routeGeolocation}
       {watchLocation}
+      {visibility}
+      {vibration}
+      {drawGps}
     </div>
   );
 };
