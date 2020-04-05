@@ -1,0 +1,27 @@
+h1{
+  color: white;
+  text-align: center;
+}
+
+.headerCaption{
+  color: white;
+  text-align: center;
+}
+
+
+.buttonContainer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  align-items: center;
+}
+
+.funcButton{
+  width: 200px;
+  background-color: transparent;
+  color: white;
+  margin: 10px;
+  font-size: 1.3em;
+  border-radius: 15px;
+}
