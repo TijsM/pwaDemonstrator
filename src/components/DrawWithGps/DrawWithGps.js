@@ -26,8 +26,16 @@ const DrawWithGps = () => {
     },
     {
       latitude:  50.6,
-      longitude: 3.606
-    }
+      longitude: 3.62
+    },
+    {
+      latitude:  50.7,
+      longitude: 3.64
+    },
+    {
+      latitude:  50.9,
+      longitude: 3.8
+    },
   ]
   
 
@@ -78,7 +86,10 @@ const DrawWithGps = () => {
       const horizontalCord = relativeLoc.longitude;
       const verticalCord = relativeLoc.latitude;
       
-      p5.ellipse(horizontalCord, verticalCord, 5)
+      const c = p5.color("red");
+      p5.fill(c)
+      p5.noStroke()
+      p5.ellipse(horizontalCord, verticalCord, 10)
     })
   }
 
