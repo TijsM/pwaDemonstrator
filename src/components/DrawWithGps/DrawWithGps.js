@@ -3,31 +3,30 @@ import Sketch from "react-p5";
 
 const DrawWithGps = () => {
   const [locations, setLocations] = useState([]);
-  // console.log('reallocations', locations)
   const mockLocations = [
     {
-      latitude:  50.9614003,
-      longitude: 3.60646270
+      latitude:  50.1,
+      longitude: 3.606
     },
     {
-      latitude:  50.9614004,
-      longitude: 3.60646271
+      latitude:  50.2,
+      longitude: 3.606
     },
     {
-      latitude:  50.9614005,
-      longitude: 3.60646272
+      latitude:  50.3,
+      longitude: 3.606
     },
     {
-      latitude:  50.9614005,
-      longitude: 3.60646273
+      latitude:  50.4,
+      longitude: 3.606
     },
     {
-      latitude:  50.9614005,
-      longitude: 3.60646274
+      latitude:  50.5,
+      longitude: 3.606
     },
     {
-      latitude:  50.9614005,
-      longitude: 3.60646276
+      latitude:  50.6,
+      longitude: 3.606
     }
   ]
   
@@ -56,21 +55,6 @@ const DrawWithGps = () => {
     navigator.geolocation.watchPosition(success, error, options);
   }, [locations, setLocations]);
 
-  // const calcRelativeMovement = (long1, lat1, long2, lat2) => {
-  //   const verticalMovement = long1 - long2;
-  //   const horizontalMovement = lat1 - lat2;
-
-  //   const relativeVerticalMovement = verticalMovement / 90;
-  //   const relatiHorizontalMovement = horizontalMovement / 90;
-
-  //   return {
-  //     vertical: relativeVerticalMovement,
-  //     horizontalMovement: relatiHorizontalMovement,
-  //   };
-  // };
-
-  //YOU NEED THE RELATIVE COORDS, NOT THE RELATIVE DISTANCES
-  
 
   const makeCoordsRelative = (long, lat) => {
     const _long = long/90 * window.innerWidth;
@@ -82,29 +66,20 @@ const DrawWithGps = () => {
     }
   }
 
-
-
-
-  
-
-  let x = 50;
-  let y = 50;
-
   const setup = (p5, canvasParentRef) => {
     p5.createCanvas(window.innerWidth, window.innerHeight-150).parent(canvasParentRef); // use parent to render canvas in this ref (without that p5 render this canvas outside your component)
   };
 
   const draw = p5 => {
     p5.background(255);
-    mockLocations.forEach((loc) => {
+    mockLocations.forEach((loc, index) => {
       const relativeLoc = makeCoordsRelative(loc.longitude, loc.latitude)
-      
+      console.log('relativeloc', index , relativeLoc)
       const horizontalCord = relativeLoc.longitude;
       const verticalCord = relativeLoc.latitude;
       
-      p5.ellipse(horizontalCord, verticalCord, 25)
+      p5.ellipse(horizontalCord, verticalCord, 5)
     })
-    x++;
   }
 
   return (
