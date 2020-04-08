@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 
 const CaptureVideo = () => {
   const [stream, setStream] = useState(null);
-  
+  const [recordedChunks, setRecorderChunks] = useState([]);
+  const [recorder, setRecorder] = useState(null);
 
   useEffect(() => {
     navigator.mediaDevices
@@ -13,29 +14,24 @@ const CaptureVideo = () => {
         vid.srcObject = vidStream;
       })
       .catch(console.error);
-
-    }, []);
-
-  console.log(stream);
-  if (stream) {
-    console.log(stream.getVideoTracks()[0]);
-  }
-
-
-  const recordedChunks = []
+  }, []);
 
   const startRecording = () => {
-
-    let recorder = null;
-    recorder = new MediaRecorder(stream, {mimeType : "video/webm"});
+    const recorder = new MediaRecorder(stream, { mimeType: "video/webm" });
+    setRecorder(recorder)
 
     recorder.ondataavailable = (event) => {
-      console.log(' Recorded chunk of size ' + event.data.size + "B");
-      recordedChunks.push(event.data);
+      const _recChunks = [...recordedChunks];
+      _recChunks.push(event.data);
+      setRecorderChunks(_recChunks);
     };
-
     recorder.start(100);
-  }
+  };
+
+  const stopRecording = () => {
+    recorder.stop()
+  };
+  console.log(recordedChunks)
 
   return (
     <div>
@@ -49,6 +45,7 @@ const CaptureVideo = () => {
         controls
       ></video>
       <button onClick={startRecording}>START</button>
+      <button onClick={stopRecording}>STOP</button>
     </div>
   );
 };
