@@ -80,7 +80,7 @@ const DrawWithGps = () => {
 
   const draw = p5 => {
     p5.background(255);
-    mockLocations.forEach((loc, index) => {
+    locations.forEach((loc, index) => {
       const relativeLoc = makeCoordsRelative(loc.longitude, loc.latitude)
       console.log('relativeloc', index , relativeLoc)
       const horizontalCord = relativeLoc.longitude;
