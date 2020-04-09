@@ -7,6 +7,7 @@ import WatchLocation from "./components/WatchLocation/Watchlocation";
 import Visibility from "./components/Visibility/Visibility";
 import Vibration from "./components/Vibration/Vibration";
 import DrawWithGps from "./components/DrawWithGps/DrawWithGps";
+import CaptureVideo from "./components/CaptureVideo/CaptureVideo";
 
 import "./App.scss";
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/visibility" component={Visibility} />
         <Route path="/vibration" component={Vibration} />
         <Route path="/drawWithGps" component={DrawWithGps} />
+        <Route path="/captureVideo" component={CaptureVideo} />
         <Route path="/" component={Home} />
       </Switch>
     </BrowserRouter>
