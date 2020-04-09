@@ -11,6 +11,7 @@ const CaptureVideo = () => {
   const [recordedChunks, setRecordedChunks] = useState([]);
   const [recorder, setRecorder] = useState(null);
   const [videoBlob, setVideoBlob] = useState(null);
+  const [isRecording, setIsRecording] = useState(false);
 
   const chunks = [];
 
@@ -26,6 +27,7 @@ const CaptureVideo = () => {
   }, []);
 
   const startRecording = () => {
+    setIsRecording(true);
     const recorder = new MediaRecorder(stream, { mimeType: "video/webm" });
     setRecorder(recorder);
     recorder.ondataavailable = (event) => {
@@ -37,10 +39,13 @@ const CaptureVideo = () => {
   };
 
   const stopRecording = () => {
-    recorder.stop();
-    const vid = document.getElementById("vid");
-    vid.srcObject = null;
-    downloadAndShowRecording();
+    if (isRecording) {
+      setIsRecording(false);
+      recorder.stop();
+      const vid = document.getElementById("vid");
+      vid.srcObject = null;
+      downloadAndShowRecording();
+    }
   };
 
   const downloadAndShowRecording = () => {
@@ -55,7 +60,7 @@ const CaptureVideo = () => {
     document.body.appendChild(a);
     a.style = "display: none";
     a.href = url;
-    a.download = "test.webm";
+    a.download = "pwasAreAwesome.webm";
     a.click();
     window.URL.revokeObjectURL(url);
   };
@@ -75,6 +80,11 @@ const CaptureVideo = () => {
             controls
           ></video>
         </div>
+        {isRecording && (
+          <span role="img" aria-label="check">
+            🔴
+          </span>
+        )}
         <div>
           <h2>recorded video</h2>
           <video
@@ -87,13 +97,16 @@ const CaptureVideo = () => {
           ></video>
         </div>
       </div>
-      <div className='buttonContainer'>
-        <button className="funcButton" onClick={startRecording}>
-          start recording
-        </button>
-        <button className="funcButton" onClick={stopRecording}>
-          stop recording
-        </button>
+      <div className="buttonContainer">
+        {!isRecording ? (
+          <button className="funcButton" onClick={startRecording}>
+            start recording
+          </button>
+        ) : (
+          <button className="funcButton" onClick={stopRecording}>
+            stop recording
+          </button>
+        )}
       </div>
     </div>
   );
