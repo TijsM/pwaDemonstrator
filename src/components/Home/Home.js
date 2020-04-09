@@ -3,11 +3,12 @@ import { Redirect } from "react-router-dom";
 import "./Home.scss";
 
 const Home = () => {
-  const [routeGeolocation, setRouteGeolocation] = useState(null);
+  const [geolocation, setGeolocation] = useState(null);
   const [watchLocation, setWatchLocation] = useState(null);
   const [visibility, setVisibility] = useState(null);
   const [vibration, setVibration] = useState(null);
   const [drawGps, setDrawGps] = useState(null);
+  const [captureVideo, setCaptureVideo] = useState(null);
 
   return (
     <div>
@@ -23,7 +24,7 @@ const Home = () => {
       <div className='buttonContainer'>
         <button
           className="funcButton"
-          onClick={() => setRouteGeolocation(<Redirect to={`/geolocation`} />)}
+          onClick={() => setGeolocation(<Redirect to={`/geolocation`} />)}
         >
           geolocation
         </button>
@@ -51,14 +52,21 @@ const Home = () => {
         >
           draw with gps
         </button>
+        <button
+          className="funcButton"
+          onClick={() => setCaptureVideo(<Redirect to={`/captureVideo`} />)}
+        >
+          captureVideo
+        </button>
       </div>
 
 
-      {routeGeolocation}
+      {geolocation}
       {watchLocation}
       {visibility}
       {vibration}
       {drawGps}
+      {captureVideo}
     </div>
   );
 };
