@@ -9,6 +9,7 @@ const Home = () => {
   const [vibration, setVibration] = useState(null);
   const [drawGps, setDrawGps] = useState(null);
   const [captureVideo, setCaptureVideo] = useState(null);
+  const [clipBoard, setClipboard] = useState(null);
 
   return (
     <div>
@@ -58,8 +59,13 @@ const Home = () => {
         >
           captureVideo
         </button>
+        <button
+          className="funcButton"
+          onClick={() => setClipboard(<Redirect to={`/clipboard`} />)}
+        >
+          clipboard
+        </button>
       </div>
-
 
       {geolocation}
       {watchLocation}
@@ -67,6 +73,7 @@ const Home = () => {
       {vibration}
       {drawGps}
       {captureVideo}
+      {clipBoard}
     </div>
   );
 };
