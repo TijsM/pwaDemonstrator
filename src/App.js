@@ -8,6 +8,7 @@ import Visibility from "./components/Visibility/Visibility";
 import Vibration from "./components/Vibration/Vibration";
 import DrawWithGps from "./components/DrawWithGps/DrawWithGps";
 import CaptureVideo from "./components/CaptureVideo/CaptureVideo";
+import Clipboard from './components/Clipboard/Clipboard'
 
 import "./App.scss";
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/vibration" component={Vibration} />
         <Route path="/drawWithGps" component={DrawWithGps} />
         <Route path="/captureVideo" component={CaptureVideo} />
+        <Route path="/clipboard" component={Clipboard} />
         <Route path="/" component={Home} />
       </Switch>
     </BrowserRouter>
