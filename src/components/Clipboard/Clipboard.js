@@ -16,7 +16,7 @@ const Clipboard = () => {
         console.error("Could not copy text: ", err);
       });
 
-      swal("coppied!", "We have coppied the URL of this website to your clipboard, please go share it with your friends 😉", "success");
+      swal("copied!", "We have copied the URL of this website to your clipboard, please go share it with your friends 😉", "success");
 
     // alert("Great! now you can share this link with your friends 😉");
   };
@@ -28,7 +28,7 @@ const Clipboard = () => {
       .then((text) => {
         console.log("Pasted content: ", text);
 
-        swal("Be carefull with sensitive data bud, webapps can read your clipboard 😉","last coppied item: "+ text, "warning");
+        swal("Be carefull with sensitive data bud, webapps can read your clipboard 😉","last copied item: "+ text, "warning");
       })
       .catch((err) => {
         console.error("Failed to read clipboard contents: ", err);
@@ -45,12 +45,12 @@ const Clipboard = () => {
       <div className="content">
         click the button to copy this URL to your clipboard.
         <button className="funcButton" onClick={copyUrl}>
-          coppy
+          copy
         </button>
       </div>
 
       <div className="content">
-       show the last item i've coppied
+       show the last item i've copied
         <button className="funcButton" onClick={pasteClipboard}>
           paste
         </button>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { opendata } from "../../constants";
 
 const Geolocation = () => {
   const [location, setLocation] = useState({
@@ -14,14 +15,28 @@ const Geolocation = () => {
         data: location,
       });
 
-      let _address = await fetch(
-        "https://api.opencagedata.com/geocode/v1/json?q=50.96137%2C%203.60648&key=e1f1763b686147ae9ed70bb29fab87e3&language=en&pretty=1"
-      );
-      _address = await _address.json();
+      if (location) {
+        console.log('eoo')
+        const api = "https://api.opencagedata.com/geocode/v1/json";
+        const url =
+          api +
+          "?" +
+          "key=" +
+          opendata +
+          "&q=" +
+          encodeURIComponent(
+            location.coords.latitude + "," + location.coords.longitude
+          ) +
+          "&pretty=1" +
+          "&no_annotations=1";
 
-      console.log("address", _address);
+        let _address = await fetch(url);
+        _address = await _address.json();
 
-      setAddress(_address.results[0].formatted);
+        console.log("address", _address);
+
+        setAddress(_address.results[0].formatted);
+      }
     };
 
     const error = (error) => {
@@ -32,6 +47,7 @@ const Geolocation = () => {
     };
 
     navigator.geolocation.getCurrentPosition(found, error);
+
   }, []);
 
   const locationJsx = location.status === "found" && (
@@ -55,7 +71,7 @@ const Geolocation = () => {
       {address ? (
         <div>
           oh yeah, and I know where that is{" "}
-          <span role="img" aria-label="wink" /> 😉 {address}{" "}
+          <span role="img" aria-label="wink" /> 😉 {address}
         </div>
       ) : null}
     </div>
