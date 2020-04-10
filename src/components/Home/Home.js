@@ -67,6 +67,7 @@ const Home = () => {
         </button>
       </div>
 
+        
       {geolocation}
       {watchLocation}
       {visibility}

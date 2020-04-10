@@ -3,40 +3,40 @@ import Sketch from "react-p5";
 
 const DrawWithGps = () => {
   const [locations, setLocations] = useState([]);
-  const mockLocations = [
-    {
-      latitude:  50.1,
-      longitude: 3.606
-    },
-    {
-      latitude:  50.2,
-      longitude: 3.606
-    },
-    {
-      latitude:  50.3,
-      longitude: 3.606
-    },
-    {
-      latitude:  50.4,
-      longitude: 3.606
-    },
-    {
-      latitude:  50.5,
-      longitude: 3.606
-    },
-    {
-      latitude:  50.6,
-      longitude: 3.62
-    },
-    {
-      latitude:  50.7,
-      longitude: 3.64
-    },
-    {
-      latitude:  50.9,
-      longitude: 3.8
-    },
-  ]
+  // const mockLocations = [
+  //   {
+  //     latitude:  50.1,
+  //     longitude: 3.606
+  //   },
+  //   {
+  //     latitude:  50.2,
+  //     longitude: 3.606
+  //   },
+  //   {
+  //     latitude:  50.3,
+  //     longitude: 3.606
+  //   },
+  //   {
+  //     latitude:  50.4,
+  //     longitude: 3.606
+  //   },
+  //   {
+  //     latitude:  50.5,
+  //     longitude: 3.606
+  //   },
+  //   {
+  //     latitude:  50.6,
+  //     longitude: 3.62
+  //   },
+  //   {
+  //     latitude:  50.7,
+  //     longitude: 3.64
+  //   },
+  //   {
+  //     latitude:  50.9,
+  //     longitude: 3.8
+  //   },
+  // ]
   
 
   useEffect(() => {
