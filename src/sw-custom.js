@@ -5,7 +5,7 @@ importScripts(
 );
 
 
-self.addEventListener("install", (event) => {
+self.addEventListener("install", (event) => { 
   console.log("[Service Worker] installing Service Worker ....", event);
   self.skipWaiting();
 });

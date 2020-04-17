@@ -10,10 +10,11 @@ const Home = () => {
   const [drawGps, setDrawGps] = useState(null);
   const [captureVideo, setCaptureVideo] = useState(null);
   const [clipBoard, setClipboard] = useState(null);
+  const [offline, setOffline] = useState(null);
 
   return (
     <div>
-      <h1>PWA's are the heroes of tomorow!</h1>
+      <h1>PWA's are the heroes of tomorrow!</h1>
       <div className="headerCaption">
         Bro, believe me, it's true! You don't have to take my worth for it, just
         take a look at these examples{" "}
@@ -65,6 +66,12 @@ const Home = () => {
         >
           clipboard
         </button>
+        <button
+          className="funcButton"
+          onClick={() => setOffline(<Redirect to={`/offline`} />)}
+        >
+          offline
+        </button>
       </div>
 
         
@@ -75,6 +82,7 @@ const Home = () => {
       {drawGps}
       {captureVideo}
       {clipBoard}
+      {offline}
     </div>
   );
 };

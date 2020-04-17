@@ -9,6 +9,7 @@ import Vibration from "./components/Vibration/Vibration";
 import DrawWithGps from "./components/DrawWithGps/DrawWithGps";
 import CaptureVideo from "./components/CaptureVideo/CaptureVideo";
 import Clipboard from './components/Clipboard/Clipboard'
+import Offline from './components/Offline/Offline'
 
 import "./App.scss";
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/drawWithGps" component={DrawWithGps} />
         <Route path="/captureVideo" component={CaptureVideo} />
         <Route path="/clipboard" component={Clipboard} />
+        <Route path="/offline" component={Offline} />
         <Route path="/" component={Home} />
       </Switch>
     </BrowserRouter>
