@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Layout from "./hoc/Layout";
 import Home from "./components/Home/Home";
@@ -10,10 +10,12 @@ import DrawWithGps from "./components/DrawWithGps/DrawWithGps";
 import CaptureVideo from "./components/CaptureVideo/CaptureVideo";
 import Clipboard from './components/Clipboard/Clipboard'
 import Offline from './components/Offline/Offline'
+import A2HS from './components/A2HS/A2HS'
 
 import "./App.scss";
 
 function App() {
+
   let routes = (
     <BrowserRouter>
       <Switch>
@@ -25,6 +27,7 @@ function App() {
         <Route path="/captureVideo" component={CaptureVideo} />
         <Route path="/clipboard" component={Clipboard} />
         <Route path="/offline" component={Offline} />
+        <Route path="/a2hs" component={A2HS} />
         <Route path="/" component={Home} />
       </Switch>
     </BrowserRouter>

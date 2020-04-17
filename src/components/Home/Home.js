@@ -11,6 +11,7 @@ const Home = () => {
   const [captureVideo, setCaptureVideo] = useState(null);
   const [clipBoard, setClipboard] = useState(null);
   const [offline, setOffline] = useState(null);
+  const [A2HS, setA2HS] = useState(null);
 
   return (
     <div>
@@ -72,6 +73,12 @@ const Home = () => {
         >
           offline
         </button>
+        <button
+          className="funcButton"
+          onClick={() => setA2HS(<Redirect to={`/a2hs`} />)}
+        >
+          add to homescreen
+        </button>
       </div>
 
         
@@ -83,6 +90,7 @@ const Home = () => {
       {captureVideo}
       {clipBoard}
       {offline}
+      {A2HS}
     </div>
   );
 };
