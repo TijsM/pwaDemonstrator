@@ -15,6 +15,19 @@ self.addEventListener("activate", function (event) {
 });
 
 
+// JS, CSS caching
+workbox.routing.registerRoute(
+  /\.(?:js|css)$/,
+  workbox.strategies.staleWhileRevalidate({
+    cacheName: "static-resources",
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 60,
+        maxAgeSeconds: 20 * 24 * 60 * 60, // 20 Days
+      }),
+    ],
+  })
+);
 
 
 
