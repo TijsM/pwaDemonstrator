@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Layout from "./hoc/Layout";
 import Home from "./components/Home/Home";
@@ -15,6 +15,8 @@ import A2HS from './components/A2HS/A2HS'
 import "./App.scss";
 
 function App() {
+
+
 
   let routes = (
     <BrowserRouter>

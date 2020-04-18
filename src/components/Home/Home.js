@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import "./Home.scss";
 
@@ -11,7 +11,30 @@ const Home = () => {
   const [captureVideo, setCaptureVideo] = useState(null);
   const [clipBoard, setClipboard] = useState(null);
   const [offline, setOffline] = useState(null);
-  const [A2HS, setA2HS] = useState(null);
+
+
+  const [prompt, setPrompt] = useState();
+
+
+
+  useEffect(() => {
+    window.addEventListener("beforeinstallprompt", (event) => {
+      event.preventDefault();
+      console.log("befre install prompt fired");
+      setPrompt(event)
+    });
+  })
+
+  const install = () => {
+    if(prompt){
+      console.log('state', prompt)
+      prompt.prompt();
+    }
+    else{
+      console.log('state', prompt)
+      console.log('installing is not supported')
+    }
+  }
 
   return (
     <div>
@@ -75,7 +98,7 @@ const Home = () => {
         </button>
         <button
           className="funcButton"
-          onClick={() => setA2HS(<Redirect to={`/a2hs`} />)}
+          onClick={install}
         >
           add to homescreen
         </button>
@@ -90,7 +113,6 @@ const Home = () => {
       {captureVideo}
       {clipBoard}
       {offline}
-      {A2HS}
     </div>
   );
 };

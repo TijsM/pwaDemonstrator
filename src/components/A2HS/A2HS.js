@@ -1,45 +1,32 @@
-import React, {useEffect, useState} from "react";
+// import React, {useEffect, useState} from "react";
 
-const A2HS = () => {
+// const A2HS = () => {
 
- const [prompt, setPrompt] = useState();
+//   const [prompt, setPrompt] = useState();
   
-  useEffect(() => {
-    window.addEventListener("beforeinstallprompt", (event) => {
-      event.preventDefault();
-      console.log("before install prompt fired");
-     
-      setPrompt(event)
-    });
-  }, [])
-
+//   useEffect(() => {
+//     const _prompt = JSON.parse(localStorage.getItem('prompt'))
+//     setPrompt(_prompt)
+//   }, [])
   
-  const install = () => {
-    console.log('clicked')
-    if(prompt){
-      prompt.prompt();
-    }
-    else{
-      console.log('installing is not supported')
-    }
-  }
+//   x
 
 
-  return (
-    <div className="container">
-      <h1>Add to homescreen</h1>
-      <div className="headerCaption">
-        You can add PWA's to your home screen. They look just like regular
-        native apps.
-      </div>
+//   return (
+//     <div className="container">
+//       <h1>Add to homescreen</h1>
+//       <div className="headerCaption">
+//         You can add PWA's to your home screen. They look just like regular
+//         native apps.
+//       </div>
 
-      <button
-      className="funcButton"
-      onClick={install}>
-        install
-      </button>
-    </div>
-  );
-};
+//       <button
+//       className="funcButton"
+//       onClick={install}>
+//         install
+//       </button>
+//     </div>
+//   );
+// };
 
-export default A2HS;
+// export default A2HS;
