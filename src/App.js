@@ -10,8 +10,7 @@ import DrawWithGps from "./components/DrawWithGps/DrawWithGps";
 import CaptureVideo from "./components/CaptureVideo/CaptureVideo";
 import Clipboard from './components/Clipboard/Clipboard'
 import Offline from './components/Offline/Offline'
-import A2HS from './components/A2HS/A2HS'
-
+import Notifications from './components/Notifications/Notifcations'
 import "./App.scss";
 
 function App() {
@@ -29,7 +28,7 @@ function App() {
         <Route path="/captureVideo" component={CaptureVideo} />
         <Route path="/clipboard" component={Clipboard} />
         <Route path="/offline" component={Offline} />
-        <Route path="/a2hs" component={A2HS} />
+        <Route path="/notifications" component={Notifications} />
         <Route path="/" component={Home} />
       </Switch>
     </BrowserRouter>

@@ -11,6 +11,7 @@ const Home = () => {
   const [captureVideo, setCaptureVideo] = useState(null);
   const [clipBoard, setClipboard] = useState(null);
   const [offline, setOffline] = useState(null);
+  const [notifications, setNotications] = useState(null);
 
 
   const [prompt, setPrompt] = useState();
@@ -102,6 +103,12 @@ const Home = () => {
         >
           add to homescreen
         </button>
+        <button
+          className="funcButton"
+          onClick={() => setNotications(<Redirect to={`/notifications`} />)}
+        >
+          notifications
+        </button>
       </div>
 
         
@@ -113,6 +120,7 @@ const Home = () => {
       {captureVideo}
       {clipBoard}
       {offline}
+      {notifications}
     </div>
   );
 };
