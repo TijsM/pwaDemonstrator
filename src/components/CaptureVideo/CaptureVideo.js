@@ -73,31 +73,14 @@ const CaptureVideo = () => {
           <h2>live</h2>
           <video
             id="vid"
-            width="500"
-            height="400"
+            width="400"
+            height="350"
             src={stream}
             autoPlay
             controls
           ></video>
         </div>
-        {isRecording && (
-          <span role="img" aria-label="check">
-            🔴
-          </span>
-        )}
-        <div>
-          <h2>recorded video</h2>
-          <video
-            id="recording"
-            width="500"
-            height="400"
-            src={videoBlob}
-            autoPlay
-            controls
-          ></video>
-        </div>
-      </div>
-      <div className="buttonContainer">
+        <div className="buttonContainer">
         {!isRecording ? (
           <button className="funcButton" onClick={startRecording}>
             start recording
@@ -108,6 +91,24 @@ const CaptureVideo = () => {
           </button>
         )}
       </div>
+        {isRecording && (
+          <span role="img" aria-label="check">
+            🔴
+          </span>
+        )}
+        <div>
+          <h2>recorded video</h2>
+          <video
+            id="recording"
+            width="400"
+            height="350"
+            src={videoBlob}
+            autoPlay
+            controls
+          ></video>
+        </div>
+      </div>
+      
     </div>
   );
 };
