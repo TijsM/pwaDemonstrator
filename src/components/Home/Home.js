@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import "./Home.scss";
 
+
 const Home = () => {
   const [geolocation, setGeolocation] = useState(null);
   const [watchLocation, setWatchLocation] = useState(null);
@@ -111,7 +112,7 @@ const Home = () => {
         </button>
       </div>
 
-        
+
       {geolocation}
       {watchLocation}
       {visibility}

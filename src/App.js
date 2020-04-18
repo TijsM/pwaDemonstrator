@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Layout from "./hoc/Layout";
 import Home from "./components/Home/Home";
 import Geolocation from "./components/Geolocation/Geolocation";
@@ -13,9 +13,9 @@ import Offline from './components/Offline/Offline'
 import Notifications from './components/Notifications/Notifcations'
 import "./App.scss";
 
+
+
 function App() {
-
-
 
   let routes = (
     <BrowserRouter>
@@ -31,12 +31,15 @@ function App() {
         <Route path="/notifications" component={Notifications} />
         <Route path="/" component={Home} />
       </Switch>
+
+      <Redirect to={`/`}/>
     </BrowserRouter>
   );
 
   return (
     <div>
       <Layout>{routes}</Layout>
+     
     </div>
   );
 }
