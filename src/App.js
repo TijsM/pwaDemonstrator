@@ -11,6 +11,7 @@ import CaptureVideo from "./components/CaptureVideo/CaptureVideo";
 import Clipboard from './components/Clipboard/Clipboard'
 import Offline from './components/Offline/Offline'
 import Notifications from './components/Notifications/Notifcations'
+import VideoCall from './components/VideoCall/VideoCall'
 import "./App.scss";
 
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/clipboard" component={Clipboard} />
         <Route path="/offline" component={Offline} />
         <Route path="/notifications" component={Notifications} />
+        <Route path="/videoCall" component={VideoCall} />
         <Route path="/" component={Home} />
       </Switch>
 

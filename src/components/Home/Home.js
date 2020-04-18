@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import "./Home.scss";
 
-
 const Home = () => {
   const [geolocation, setGeolocation] = useState(null);
   const [watchLocation, setWatchLocation] = useState(null);
@@ -13,30 +12,27 @@ const Home = () => {
   const [clipBoard, setClipboard] = useState(null);
   const [offline, setOffline] = useState(null);
   const [notifications, setNotications] = useState(null);
-
+  const [videoCall, setVideoCall] = useState(null);
 
   const [prompt, setPrompt] = useState();
-
-
 
   useEffect(() => {
     window.addEventListener("beforeinstallprompt", (event) => {
       event.preventDefault();
       console.log("befre install prompt fired");
-      setPrompt(event)
+      setPrompt(event);
     });
-  })
+  });
 
   const install = () => {
-    if(prompt){
-      console.log('state', prompt)
+    if (prompt) {
+      console.log("state", prompt);
       prompt.prompt();
+    } else {
+      console.log("state", prompt);
+      console.log("installing is not supported");
     }
-    else{
-      console.log('state', prompt)
-      console.log('installing is not supported')
-    }
-  }
+  };
 
   return (
     <div>
@@ -49,7 +45,7 @@ const Home = () => {
         </span>
       </div>
 
-      <div className='buttonContainer'>
+      <div className="buttonContainer">
         <button
           className="funcButton"
           onClick={() => setGeolocation(<Redirect to={`/geolocation`} />)}
@@ -98,10 +94,7 @@ const Home = () => {
         >
           offline
         </button>
-        <button
-          className="funcButton"
-          onClick={install}
-        >
+        <button className="funcButton" onClick={install}>
           add to homescreen
         </button>
         <button
@@ -110,8 +103,13 @@ const Home = () => {
         >
           notifications
         </button>
+        <button
+          className="funcButton"
+          onClick={() => setVideoCall(<Redirect to={`/videoCall`} />)}
+        >
+          video call
+        </button>
       </div>
-
 
       {geolocation}
       {watchLocation}
@@ -122,6 +120,7 @@ const Home = () => {
       {clipBoard}
       {offline}
       {notifications}
+      {videoCall}
     </div>
   );
 };
